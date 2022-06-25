@@ -1,12 +1,16 @@
 import { config } from 'dotenv';
 import express, { Application, NextFunction, Request, Response } from 'express';
 
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
+// use `prisma` in your application to read and write data in your DB
 config();
 
 const app: Application = express();
 
-app.get('/', (req: Request, res: Response, next: NextFunction) => {
-  res.send('Express server with TypeScript');
+app.get('/', async (req: Request, res: Response, next: NextFunction) => {
+  const users = await prisma.user.findMany();
+  res.json(users);
 });
 
 const PORT = process.env.PORT || 3000;
