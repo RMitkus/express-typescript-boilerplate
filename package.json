@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "nodemon ./src/server.ts",
-    "start": "node ./dist/server.js"
+    "start": "npx prisma generate && node ./dist/server.js"
   },
   "author": "Rytis M.",
   "license": "ISC",
