@@ -53,7 +53,7 @@ export const userTypes = `
 
 export const userQueries = `
     users: [User]
-    user(email: String): User
+    user(email: String): User 
 `
 
 export const userResolvers = {
