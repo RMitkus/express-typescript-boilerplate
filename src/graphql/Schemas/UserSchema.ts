@@ -1,4 +1,4 @@
-import { PrismaClient, UserArgs } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 import { User } from '../../Types/UserModel';
 const prisma = new PrismaClient();
 
@@ -57,7 +57,7 @@ export const userQueries = `
 `
 
 export const userResolvers = {
-  users: async (): Promise<UserArgs[]> => {
+  users: async (): Promise<User[]> => {
       return await prisma.user.findMany({
         include: {
           role: true,

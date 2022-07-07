@@ -15,7 +15,6 @@ type Role = {
     role: string;
     createdAt: Date;
     updatedAt: Date;
-    user: User;
 }
 
 type Location = {
@@ -26,7 +25,6 @@ type Location = {
     coordinates: string;
     createdAt: Date;
     updatedAt: Date;
-    user: User;
     amenities: Amenities |null;
 }
 
@@ -42,5 +40,4 @@ type Amenities = {
     mirror: boolean;
     createdAt: Date;
     updatedAt: Date;
-    location: Location;
 }
