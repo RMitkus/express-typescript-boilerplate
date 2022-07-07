@@ -1,5 +1,5 @@
 import { PrismaClient, UserArgs } from '@prisma/client';
-
+import { User } from '../../Types/UserModel';
 const prisma = new PrismaClient();
 
 export const userTypes = `

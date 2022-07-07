@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "nodemon ./src/server.ts",
-    "start": "node ./dist/server.js"
+    "start": "nodemon ./dist/server.js"
   },
   "author": "Rytis M.",
   "license": "ISC",
