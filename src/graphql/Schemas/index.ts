@@ -1,10 +1,10 @@
-import { userQueries, userTypes, userResolvers } from "./UserSchema";
-import { postQueries, postTypes, postResolvers } from "./PostsSchema";
+import { userQueries, userTypes, userResolvers } from "./User/UserSchema";
+import { locationQueries, locationTypes, locationResolvers } from "./Location/LocationSchema";
 import { buildSchema } from  'graphql';
 
-const typesResources = [userTypes, postTypes];
-const queriesResources = [userQueries, postQueries];
-const resolverResources = [userResolvers, postResolvers];
+const typesResources = [userTypes, locationTypes];
+const queriesResources = [userQueries, locationQueries];
+const resolverResources = [userResolvers, locationResolvers];
 
 const types = typesResources.join('\n');
 const joinedQueries = queriesResources.join('\n');

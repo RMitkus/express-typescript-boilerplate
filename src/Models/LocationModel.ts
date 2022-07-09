@@ -1,23 +1,4 @@
-export type User = {
-    id: string;
-    name: string;
-    lastName: string | null;
-    email: string;
-    password: string;
-    createdAt: Date;
-    updatedAt: Date;
-    role: Role | null;
-    locations: Location[];
-  }
-
-type Role = {
-    id: number;
-    role: string;
-    createdAt: Date;
-    updatedAt: Date;
-}
-
-type Location = {
+export type Location = {
     id: string;
     name: string;
     address: string;
