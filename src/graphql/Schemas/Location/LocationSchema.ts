@@ -29,18 +29,18 @@ export const locationTypes = `
     updatedAt: String
     location: Location
   }
-`
+`;
 
 export const locationQueries = `
     locations: [Location]
-`
+`;
 
 export const locationResolvers = {
-  locations: async (): Promise<Location[]> => {
-      return await prisma.location.findMany({
-            include: {
-                amenities: true,
-            }
-      });
-    },
-}
+	locations: async (): Promise<Location[]> => {
+		return await prisma.location.findMany({
+			include: {
+				amenities: true
+			}
+		});
+	}
+};

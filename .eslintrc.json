@@ -8,13 +8,20 @@
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaVersion": 13,
+        "ecmaVersion": "latest",
         "sourceType": "module"
     },
     "plugins": [
         "@typescript-eslint"
     ],
     "rules": {
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        "object-curly-spacing": ["error", "always"],
+        "indent": ["error", "tab"],
+        "no-trailing-spaces": ["error"],
+        "no-multiple-empty-lines": ["error", { "max": 1}],
+        "max-len": ["error", { "code": 160 }],
+        "no-unused-vars": ["error"],
+        "no-tabs": ["off"]
     }
 }
