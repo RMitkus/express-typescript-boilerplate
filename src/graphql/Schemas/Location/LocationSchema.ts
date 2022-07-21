@@ -1,6 +1,8 @@
-import { PrismaClient } from '@prisma/client';
-import { Location } from '../../../Models/LocationModel';
-const prisma = new PrismaClient();
+import { PrismaClient } from '@prisma/client'
+
+import { Location } from '../../../Models/LocationModel'
+
+const prisma = new PrismaClient()
 
 export const locationTypes = `
   type Location {
@@ -17,23 +19,18 @@ export const locationTypes = `
 
   type Amenities {
     id: String
-    nursingTable: Boolean
-    wifi: Boolean
-    tv: Boolean
     microwave: Boolean
     chair: Boolean
-    sink: Boolean
     wc: Boolean
-    mirror: Boolean
     createdAt: String
     updatedAt: String
     location: Location
   }
-`;
+`
 
 export const locationQueries = `
     locations: [Location]
-`;
+`
 
 export const locationResolvers = {
 	locations: async (): Promise<Location[]> => {
@@ -41,6 +38,6 @@ export const locationResolvers = {
 			include: {
 				amenities: true
 			}
-		});
+		})
 	}
-};
+}

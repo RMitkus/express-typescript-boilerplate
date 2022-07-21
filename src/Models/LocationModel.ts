@@ -1,3 +1,12 @@
+type Amenities = {
+    id: string;
+    microwave: boolean;
+    chair: boolean;
+    wc: boolean;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
 export type Location = {
     id: string;
     name: string;
@@ -6,19 +15,6 @@ export type Location = {
     coordinates: string;
     createdAt: Date;
     updatedAt: Date;
-    amenities: Amenities |null;
+    amenities: Amenities | null;
 }
 
-type Amenities = {
-    id: string;
-    nursingTable: boolean;
-    wifi: boolean;
-    tv: boolean;
-    microwave: boolean;
-    chair: boolean;
-    sink: boolean;
-    wc: boolean;
-    mirror: boolean;
-    createdAt: Date;
-    updatedAt: Date;
-}

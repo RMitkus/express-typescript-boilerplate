@@ -1,29 +1,44 @@
-import { config } from 'dotenv';
+import { config } from 'dotenv'
+import express, {
+	Application, Request, Response
+} from 'express'
+import morgan from 'morgan'
 
-import express, { Application, Request, Response } from 'express';
-import morgan from 'morgan';
-import { graphqlClient } from './graphql';
+import { graphqlClient } from './graphql'
 
-config();
+config()
 
-const app: Application = express();
-app.use(morgan('dev'));
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ limit: '50mb', extended: true }));
-app.use(express.text());
+const app: Application = express()
+
+app.use(morgan('dev'))
+app.use(express.json({
+	limit: '50mb'
+}))
+app.use(express.urlencoded({
+	limit: '50mb',
+	extended: true
+}))
+app.use(express.text())
 
 app.post('/', (req: Request, res: Response) => {
-	const { username, password } = req.body;
-	res.json({ username, password });
-});
+	const {
+		username,
+		password
+	} = req.body
 
-app.use('/graphql', graphqlClient);
+	res.json({
+		username,
+		password
+	})
+})
 
-const PORT = process.env.PORT || 3000;
+app.use('/graphql', graphqlClient)
+
+const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
 	console.log(`
   Server is listening on port http://localhost:${PORT} \n
   graphiql running on http://localhost:${PORT}/graphql
-  `);
-});
+  `)
+})

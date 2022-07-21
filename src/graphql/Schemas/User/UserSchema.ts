@@ -1,6 +1,8 @@
-import { PrismaClient } from '@prisma/client';
-import { User } from '../../../Models/UserModel';
-const prisma = new PrismaClient();
+import { PrismaClient } from '@prisma/client'
+
+import { User } from '../../../Models/UserModel'
+
+const prisma = new PrismaClient()
 
 export const userTypes = `
   type User {
@@ -22,13 +24,13 @@ export const userTypes = `
     updatedAt: String
     user: User
   }
-`;
+`
 
 export const userQueries = `
     users: [User]
     user(email: String): User
     userLogin(email: String, password: String): User
-`;
+`
 
 export const userResolvers = {
 	users: async (): Promise<User[]> => {
@@ -41,7 +43,7 @@ export const userResolvers = {
 					}
 				}
 			}
-		});
+		})
 	},
 	user: async (args: {email: string}): Promise<User> => {
 		const user = await prisma.user.findUnique({
@@ -56,14 +58,15 @@ export const userResolvers = {
 					}
 				}
 			}
-		});
+		})
+
 		if (!user) {
-			throw new Error('User not found');
+			throw new Error('User not found')
 		}
-		return user;
+
+		return user
 	},
 	userLogin: async (args: {email: string, password: string}): Promise<User> => {
-		console.log(args.email, args.password);
 		const user = await prisma.user.findFirst({
 			where: {
 				email: args.email,
@@ -77,10 +80,12 @@ export const userResolvers = {
 					}
 				}
 			}
-		});
+		})
+
 		if (!user) {
-			throw new Error('User not found');
+			throw new Error('User not found')
 		}
-		return user;
+
+		return user
 	}
-};
+}

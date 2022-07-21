@@ -1,4 +1,11 @@
-import { Location } from "./LocationModel";
+import { Location } from './LocationModel';
+
+type Role = {
+  id: number;
+  role: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
 
 export type User = {
     id: string;
@@ -12,9 +19,3 @@ export type User = {
     locations: Location[];
   }
 
-type Role = {
-    id: number;
-    role: string;
-    createdAt: Date;
-    updatedAt: Date;
-}
