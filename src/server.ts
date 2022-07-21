@@ -18,7 +18,6 @@ app.use(express.urlencoded({
 	limit: '50mb',
 	extended: true
 }))
-app.use(express.text())
 
 app.post('/', (req: Request, res: Response) => {
 	const {
