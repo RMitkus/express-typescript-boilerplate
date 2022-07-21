@@ -4,7 +4,7 @@ import express, {
 } from 'express'
 import morgan from 'morgan'
 
-import { graphqlClient } from './graphql'
+import graphqlClient from './graphql'
 
 config()
 
