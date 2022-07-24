@@ -65,27 +65,5 @@ export const userResolvers = {
 		}
 
 		return user
-	},
-	userLogin: async (args: {email: string, password: string}): Promise<User> => {
-		const user = await prisma.user.findFirst({
-			where: {
-				email: args.email,
-				password: args.password
-			},
-			include: {
-				role: true,
-				locations: {
-					include: {
-						amenities: true
-					}
-				}
-			}
-		})
-
-		if (!user) {
-			throw new Error('User not found')
-		}
-
-		return user
 	}
 }
